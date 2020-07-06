@@ -72,7 +72,7 @@ public class GameView extends SurfaceView implements Runnable {
                 snake = new Snake(getContext());
             }
             canvas = surfaceHolder.lockCanvas();
-            canvas.drawColor(Color.BLACK);
+            canvas.drawColor(Color.GRAY);
             snake._draw(paint, canvas);
 
             surfaceHolder.unlockCanvasAndPost(canvas);

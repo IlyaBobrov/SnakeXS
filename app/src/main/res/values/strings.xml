@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ViperXS</string>
+    <string name="TextBtnRight"><![CDATA[>]]></string>
+    <string name="TextBtnLeft"><![CDATA[<]]></string>
+</resources>

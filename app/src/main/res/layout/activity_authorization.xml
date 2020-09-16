@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="65dp"
+    android:layout_marginTop="110dp"
+    android:layout_marginRight="65dp"
+    android:layout_marginBottom="65dp"
+    >
+
+    <TextView
+        android:id="@+id/textAuthorization"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
+        android:gravity="center"
+        android:text="Авторизация"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/textErrorView"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text=""
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <TextView
+        android:id="@+id/textLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Логин или номер телефона"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <EditText
+        android:id="@+id/editTextLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EB000000"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+    <TextView
+        android:id="@+id/textPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Пароль"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="352dp" />
+
+    <EditText
+        android:id="@+id/editTextPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#EB000000"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="382dp" />
+
+    <Button
+        android:id="@+id/buttonBackPass"
+        android:layout_width="111dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#00FFFFFF"
+        android:gravity="center"
+        android:text="восстановить пароль"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="438dp"
+        android:onClick="onClickBackPass"
+        tools:ignore="SmallSp" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/buttonRegistr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#A3A3A3"
+            android:text="Регистрация"
+            android:textColor="#fff"
+            android:layout_marginEnd="5dp"
+            android:onClick="onClickRegistr"/>
+
+        <Button
+            android:id="@+id/buttonInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F44336"
+            android:text="Войти"
+            android:textColor="#fff"
+            android:layout_marginStart="5dp"
+            android:onClick="onClickInput"/>
+
+    </LinearLayout>
+</LinearLayout>

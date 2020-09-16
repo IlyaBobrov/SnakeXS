@@ -11,7 +11,7 @@ public class Snake extends GardenBody {
 
         init(context); // init snake
     }
-
+/*
     @Override
     void update() {
         if(MainActivity.isLeftPressed && x >= 0) {
@@ -20,5 +20,5 @@ public class Snake extends GardenBody {
         if(MainActivity.isRightPressed && x <= GameView.maxX - size) {
             x +=speed;
         }
-    }
+    }*/
 }

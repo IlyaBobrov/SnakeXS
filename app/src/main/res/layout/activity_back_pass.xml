@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BackPassActivity">
+    tools:context=".BackPassActivity"
+    android:orientation="vertical"
+    android:layout_marginStart="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginTop="50dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:text="Восстановление пароля"
+        android:layout_height="99dp"
+        android:gravity="center"
+        android:textColor="#F44336"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:id="@+id/textNameForBackUpPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Введите логин, номер телефона или почту" />
+
+    <EditText
+        android:id="@+id/editFieldForBackUpPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxForBackUpPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Я не робот"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Восстановить"
+        android:background="#F44336"
+        android:textColor="#fff"
+        android:layout_marginStart="5dp"
+        android:onClick="onBackUp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"/>
+</LinearLayout>

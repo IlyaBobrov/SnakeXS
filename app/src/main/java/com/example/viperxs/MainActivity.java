@@ -67,25 +67,26 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
         Intent intent = new Intent(this, RegistrActivity.class);
         EditText editText = (EditText) findViewById(R.id.editTextLogin);
         String login = editText.getText().toString();
-        intent.putExtra("LOGIN", login);
+        intent.putExtra(LOGIN, login);
         startActivity(intent);
     }
 
     public void onClickInput(View view) {
         TextView errorView = (TextView) findViewById(R.id.textErrorView);
         errorView.setText("");
-        Intent intent = new Intent(this, AppActivity.class);
+        Intent intent = new Intent(this, NewsActivity.class);
         EditText editLogin = (EditText) findViewById(R.id.editTextLogin);
         EditText editPass = (EditText) findViewById(R.id.editTextPass);
         if (CheckData(editLogin,editPass)) {
             startActivity(intent);
         } else {
             errorView.setText("Ошибка ввода данных!");
+            return;
         }
     }
 
     private boolean CheckData(EditText editLogin, EditText editPass) {
-        return false;
+        return true;
     }
 
     public void onClickBackPass(View view) {

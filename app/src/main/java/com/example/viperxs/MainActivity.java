@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
@@ -14,16 +17,33 @@ import android.widget.LinearLayout;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity /*implements View.OnTouchListener*/ {
 
     //public static boolean isLeftPressed = false, isRightPressed = false;
 
     public final static String LOGIN = "LOGIN";
+    private DatabaseHelper mDBHelper;
+    private SQLiteDatabase mDB;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization);
+
+        mDBHelper = new DatabaseHelper(this);
+        try {
+            mDBHelper.updateDataBase();
+        } catch (IOException mIOException) {
+            throw new Error("UnableToUpdateDatabase");
+        }
+        try {
+            mDB = mDBHelper.getWritableDatabase();
+        } catch (SQLException mSQLException) {
+            throw mSQLException;
+        }
 
         /*GameView gameView = new GameView(this);
         LinearLayout gameLayout = (LinearLayout) findViewById(R.id.gameLayout);

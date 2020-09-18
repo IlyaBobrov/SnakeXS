@@ -21,8 +21,6 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity /*implements View.OnTouchListener*/ {
 
-    //public static boolean isLeftPressed = false, isRightPressed = false;
-
     public final static String LOGIN = "LOGIN";
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDB;
@@ -44,44 +42,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
         } catch (SQLException mSQLException) {
             throw mSQLException;
         }
-
-        /*GameView gameView = new GameView(this);
-        LinearLayout gameLayout = (LinearLayout) findViewById(R.id.gameLayout);
-        gameLayout.addView(gameView);
-
-        Button leftBtn = (Button) findViewById(R.id.btnLeft);
-        Button rightBtn = (Button) findViewById(R.id.btnRight);
-
-        leftBtn.setOnTouchListener(this);
-        rightBtn.setOnTouchListener(this);*/
     }
-
-    /*@Override
-    public boolean onTouch(View button, MotionEvent motionEvent) {
-        switch (button.getId()){
-            case R.id.btnLeft:
-                switch (motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        isLeftPressed = true;
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isLeftPressed = false;
-                        break;
-                }
-                break;
-            case R.id.btnRight:
-                switch (motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        isRightPressed = true;
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isRightPressed = false;
-                        break;
-                }
-                break;
-        }
-        return false;
-    }*/
 
     public void onClickRegistr(View view) {
         Intent intent = new Intent(this, RegistrActivity.class);

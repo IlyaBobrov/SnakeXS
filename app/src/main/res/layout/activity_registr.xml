@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:layout_marginStart="25dp"
     android:layout_marginEnd="25dp"
-    android:layout_marginTop="50dp">
+    android:layout_marginTop="50dp"
+    tools:actionBarNavMode="list">
 
 
     <TextView
@@ -18,7 +19,7 @@
         android:gravity="center"
         android:textColor="#F44336"
         android:textSize="24sp"
-        android:text="Регистрация"
+        android:text="@string/h_registration"
         android:textStyle="normal|bold"
         />
 
@@ -26,13 +27,16 @@
         android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Никнейм (Логин)" />
+        android:text="Никнейм (Логин)"
+        style="@style/TextViewStyle"
+        />
 
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textPersonName"
         />
 
@@ -40,70 +44,70 @@
         android:id="@+id/textEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email" />
+        android:text="Email"
+        style="@style/TextViewStyle"/>
 
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/textPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Номер телефона" />
+        android:text="Номер телефона"
+        style="@style/TextViewStyle"/>
 
     <EditText
         android:id="@+id/editPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="phone" />
 
     <TextView
         android:id="@+id/textPass1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Пароль" />
+        android:text="@string/h_password"
+        style="@style/TextViewStyle"/>
 
     <EditText
         android:id="@+id/editPass1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/textPass2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Повторите пароль" />
+        android:text="Повторите пароль"
+        style="@style/TextViewStyle"/>
 
     <EditText
         android:id="@+id/editPass2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/buttonRegistration"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Зарегистрироваться"
-        android:background="#F44336"
-        android:textColor="#fff"
-        android:layout_marginStart="5dp"
-        android:onClick="onClickRegistration"
+        android:text="@string/h_in_registration"
+        style="@style/ButtonStyle.ButtonRed"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"/>
-
-    <TextView
-        android:id="@+id/textError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginBottom="15dp"
+        android:onClick="onClickRegistration"/>
 
 </LinearLayout>

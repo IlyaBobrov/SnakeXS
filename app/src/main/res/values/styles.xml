@@ -16,4 +16,41 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <style name="ButtonStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="ButtonStyle.ButtonRed">
+        <item name="android:background">@drawable/button_main_red</item>
+    </style>
+
+    <style name="ButtonStyle.ButtonGrey">
+        <item name="android:background">@drawable/button_main_grey</item>
+    </style>
+
+    <style name="EditTextStyle">
+<!--        <item name="android:backgroundTint"> #EB000000 </item>-->
+        <item name="android:paddingStart">  10dp</item>
+        <item name="android:paddingTop">    10dp</item>
+        <item name="android:paddingBottom"> 10dp</item>
+        <item name="android:paddingEnd">    10dp</item>
+        <item name="android:layout_marginTop">      5dp</item>
+        <item name="android:layout_marginBottom">   5dp</item>
+
+    </style>
+
+    <style name="EditTextStyle.EditTextGeneral">
+        <item name="android:background">@drawable/edit_text_main</item>
+    </style>
+
+    <style name="TextViewStyle">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginTop">   5dp</item>
+        <item name="android:layout_marginStart"> 5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
 </resources>

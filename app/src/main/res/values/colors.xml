@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#e00000</color>
-    <color name="colorPrimaryDark">#870000</color>
+    <color name="colorPrimaryDark">#cf0000</color>
     <color name="colorAccent">#ffa000</color>
     <color name="field">#4bb852</color>
+
+    <color name="textColor">#666666</color>
+
+    <color name="colorBtnGrey">#A3A3A3</color>
+    <color name="colorBtnGreyClicked">#787878</color>
+    <color name="colorBtnRed">#F44336</color>
+    <color name="colorBtnRedClicked">#cf0000</color>
+
+    <color name="colorWhite">#ffffff</color>
 </resources>

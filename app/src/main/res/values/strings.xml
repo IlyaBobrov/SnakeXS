@@ -13,4 +13,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="h_in_registration">Зарегистрироваться</string>
+    <string name="h_registration">Регистрация</string>
+    <string name="h_input">Войти</string>
+    <string name="h_restore_password">Восстановить пароль</string>
+    <string name="h_password">Пароль</string>
+    <string name="h_login_or_phone">Логин или номер телефона</string>
+    <string name="h_authorization">Авторизация</string>
+    <string name="error_input_data">в заполнении данных</string>
+    <string name="error">Ошибка</string>
 </resources>

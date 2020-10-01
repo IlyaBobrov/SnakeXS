@@ -3,6 +3,7 @@ package com.example.viperxs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -42,32 +43,36 @@ public class RegistrActivity extends AppCompatActivity {
         checkValidEmail(fieldsEditText, fieldsTextView);
         checkValidPhone(fieldsEditText, fieldsTextView);
         checkValidPass(fieldsEditText, fieldsTextView);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog dialog = builder.create();
+
         Toast toast;
         //если все поля заполнены корректно, проверяем в бд
         if (flagValidField) {
-            toast = Toast.makeText(getApplicationContext(), "Ошибка ввода данных", Toast.LENGTH_SHORT);
-            toast.show();
-        } else {
+            dialog = builder.setMessage(R.string.error_input_data).setTitle(R.string.error).create();
+            dialog.show();
 
+        } else {
             checkDataInDB(fieldsEditText, fieldsTextView);
             //если в бд нет совпадений, сохраняем пользователя
+            //TODO: Переделать механизм проверки
             if (flagValidField) {
-                toast = Toast.makeText(getApplicationContext(), "Такой пользователь существет", Toast.LENGTH_SHORT);
-                toast.show();
+                dialog = builder.setMessage("Такой пользователь уже существет").setTitle("Упс").create();
+                dialog.show();
             } else {
                 toast = Toast.makeText(getApplicationContext(), "Вы успешно зарегестрировались!", Toast.LENGTH_LONG);
                 toast.show();
-                setDataInDB(fieldsEditText);
                 this.finish();
             }
         }
-
     }
 
     private void checkEmptyFiled(EditText[] editTexts, TextView[] textViews) {
         for (int i = 0; i < editTexts.length; i++) {
             if (editTexts[i].getText().toString().isEmpty()) {
                 redText(textViews[i]);
+                flagValidField = true;
             } else {
                 normalText(textViews[i]);
             }
@@ -85,15 +90,13 @@ public class RegistrActivity extends AppCompatActivity {
     }
 
     private void checkValidEmail(EditText[] editTexts, TextView[] textViews) {
-        if (!editTexts[1].getText().toString().matches("(\\w@\\w*.\\w*)")) {
+        if (!editTexts[1].getText().toString().matches("(\\w*@\\w*.\\w*)")) {
             redText(textViews[1]);
         } else {
             normalText(textViews[1]);
         }
     }
 
-
-    
     private void checkValidPhone(EditText[] editTexts, TextView[] textViews) {
         if (!editTexts[2].getText().toString().matches("(\\+*)\\d{11}")) {
             redText(textViews[2]);

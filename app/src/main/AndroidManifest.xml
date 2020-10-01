@@ -15,10 +15,16 @@
             android:name=".NewsActivity"
             android:label="@string/title_activity_news"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".BackPassActivity" />
+        <activity
+            android:name=".BackPassActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".AppActivity" />
-        <activity android:name=".RegistrActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".RegistrActivity"
+            android:screenOrientation="portrait" /> <!-- фиксация ориентации -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

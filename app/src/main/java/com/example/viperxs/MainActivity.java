@@ -2,6 +2,7 @@ package com.example.viperxs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,16 +23,16 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity /*implements View.OnTouchListener*/ {
 
     public final static String LOGIN = "LOGIN";
+    public final static String WEATHER_KEY = "WEATHER_KEY";
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDB;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization);
 
-        mDBHelper = new DatabaseHelper(this);
+        /*mDBHelper = new DatabaseHelper(this);
         try {
             mDBHelper.updateDataBase();
         } catch (IOException mIOException) {
@@ -41,8 +42,17 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
             mDB = mDBHelper.getWritableDatabase();
         } catch (SQLException mSQLException) {
             throw mSQLException;
-        }
+        }*/
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        /*if (mCity != null) {
+            outState.putSerializable(WEATHER_KEY, mCity);
+        }*/
+    }
+
 
     public void onClickRegistr(View view) {
         Intent intent = new Intent(this, RegistrActivity.class);
@@ -53,23 +63,27 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
     }
 
 
-    //TODO: вместо тостоав и текстВью выводить диалоговое окно
     public void onClickInput(View view) {
-        TextView errorView = (TextView) findViewById(R.id.textErrorView);
-        errorView.setText("");
-        Intent intent = new Intent(this, NewsActivity.class);
+
+        Intent intentInput = new Intent(this, NewsActivity.class);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Ошибка ввода данных").setTitle("Упс");
+        AlertDialog dialog = builder.create();
+
         EditText editLogin = (EditText) findViewById(R.id.editTextLogin);
         EditText editPass = (EditText) findViewById(R.id.editTextPass);
         if (CheckData(editLogin,editPass)) {
-            startActivity(intent);
+            startActivity(intentInput);
+            this.finish();
         } else {
-            errorView.setText("Ошибка ввода данных!");
+            dialog.show();
             return;
         }
     }
 
     private boolean CheckData(EditText editLogin, EditText editPass) {
-        return true;
+        return false;
     }
 
     public void onClickBackPass(View view) {
@@ -78,5 +92,11 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
         String login = editText.getText().toString();
         intent.putExtra(LOGIN, login);
         startActivity(intent);
+    }
+
+    public void onClickSicretInput(View view) {
+        Intent intentInput = new Intent(this, NewsActivity.class);
+        startActivity(intentInput);
+        this.finish();
     }
 }

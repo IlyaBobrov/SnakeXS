@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
         startActivity(intent);
     }
 
+
+    //TODO: вместо тостоав и текстВью выводить диалоговое окно
     public void onClickInput(View view) {
         TextView errorView = (TextView) findViewById(R.id.textErrorView);
         errorView.setText("");

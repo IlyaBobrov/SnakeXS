@@ -20,6 +20,31 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="Hello"
+            app:layout_anchor="@+id/linearLayout"
+            app:layout_anchorGravity="center"
+            android:gravity="center"/>
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:onClick="inClickVideo"/>
+
+    </LinearLayout>
+
+
+
     <include layout="@layout/content_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,5 +54,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

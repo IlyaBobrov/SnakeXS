@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation_view"
+    android:theme="@style/AppTheme.NoActionBar">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/ic_menu_news"
             android:title="@string/menu_home" />
-        <item
+        <!--<item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_slideshow" />-->
+        <item
+            android:id="@+id/nav_time_manager"
+            android:icon="@mipmap/ic_menu_time_manager"
+            android:title="@string/menu_time_manager" />
+        <item
+            android:id="@+id/nav_plan"
+            android:icon="@mipmap/ic_menu_plan"
+            android:title="@string/menu_plan" />
+
+        <!-- TODO: опустить item вниз -->
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@mipmap/ic_setings"
+            android:title="@string/action_settings" />
+        <item
+            android:id="@+id/nav_out"
+            android:icon="@mipmap/ic_out"
+            android:title="@string/menu_out" />
     </group>
 </menu>

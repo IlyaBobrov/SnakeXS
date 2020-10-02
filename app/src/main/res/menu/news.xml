@@ -2,13 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_authorization"
+        android:orderInCategory="5"
+        android:title="@string/h_authorization"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="15"
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item android:id="@+id/action_regisr"
         android:orderInCategory="10"
-        android:title="Регистрация"
+        android:title="@string/h_registration"
         app:showAsAction="never"
         android:onClick="onClickAction_regisr"
         />

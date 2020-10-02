@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsActivity">
+    tools:context=".NewsActivity"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -17,33 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:text="Hello"
-            app:layout_anchor="@+id/linearLayout"
-            app:layout_anchorGravity="center"
-            android:gravity="center"/>
-
-        <VideoView
-            android:id="@+id/videoView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:onClick="inClickVideo"/>
-
-    </LinearLayout>
-
-
 
     <include layout="@layout/content_main" />
 
@@ -57,4 +32,7 @@
 
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</LinearLayout>

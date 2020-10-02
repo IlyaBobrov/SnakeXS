@@ -4,24 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="110dp"
-    android:layout_marginBottom="65dp"
     android:layout_marginLeft="50dp"
+    android:layout_marginTop="80dp"
     android:layout_marginRight="50dp"
-    >
+    android:layout_marginBottom="65dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        app:srcCompat="@mipmap/logo"
+        android:clickable="true"
+        android:onClick="onClickSicretInput"/>
 
     <TextView
         android:id="@+id/textAuthorization"
         android:layout_width="match_parent"
-        android:layout_height="99dp"
+        android:layout_height="60dp"
+        android:clickable="true"
         android:gravity="center"
+        android:onClick="onClickSicretInput"
         android:text="@string/h_authorization"
         android:textColor="#F44336"
         android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:clickable="true"
-        android:onClick="onClickSicretInput"/>
+        android:textStyle="normal|bold" />
 
     <!--<TextView
         android:id="@+id/textErrorView"
@@ -35,41 +42,41 @@
 
     <TextView
         android:id="@+id/textLogin"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="264dp"
+        android:layout_height="wrap_content"
         android:text="@string/h_login_or_phone"
-        style="@style/TextViewStyle"/>
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="264dp" />
 
     <EditText
         android:id="@+id/editTextLogin"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        style="@style/EditTextStyle.EditTextGeneral"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="295dp" />
 
     <TextView
         android:id="@+id/textPass"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:text="@string/h_password"
         tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="352dp"
-        style="@style/TextViewStyle"/>
+        tools:layout_editor_absoluteY="352dp" />
 
     <EditText
         android:id="@+id/editTextPass"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        style="@style/EditTextStyle.EditTextGeneral"
         android:visibility="visible"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="382dp" />
@@ -86,36 +93,37 @@
         android:onClick="onClickBackPass"
         android:text="@string/h_restore_password"
         android:textAllCaps="false"
+        android:textColor="@color/textColor"
         android:textSize="15sp"
         tools:ignore="SmallSp"
-        android:textColor="@color/textColor"
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="438dp" />
 
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:layout_marginBottom="100dp">
 
         <Button
             android:id="@+id/buttonRegistr"
+            style="@style/ButtonStyle.ButtonGrey"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/h_registration"
-            style="@style/ButtonStyle.ButtonGrey"
             android:layout_marginEnd="5dp"
-            android:onClick="onClickRegistr"/>
+            android:layout_weight="1"
+            android:onClick="onClickRegistr"
+            android:text="@string/h_registration" />
 
         <Button
             android:id="@+id/buttonInput"
+            style="@style/ButtonStyle.ButtonRed"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/h_input"
-            style="@style/ButtonStyle.ButtonRed"
             android:layout_marginStart="5dp"
-            android:onClick="onClickInput"/>
+            android:layout_weight="1"
+            android:onClick="onClickInput"
+            android:text="@string/h_input" />
 
     </LinearLayout>
 </LinearLayout>

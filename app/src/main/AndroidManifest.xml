@@ -11,26 +11,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".NewsActivity"
             android:label="@string/title_activity_news"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".BackPassActivity"
             android:screenOrientation="portrait" />
+
         <activity android:name=".AppActivity" />
+
         <activity
             android:name=".RegistrActivity"
-            android:screenOrientation="portrait" /> <!-- фиксация ориентации -->
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Logo"
+            /> <!-- фиксация ориентации -->
+
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

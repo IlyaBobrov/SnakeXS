@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrActivity"
-    android:orientation="vertical"
     android:layout_marginStart="25dp"
-    android:layout_marginEnd="25dp"
     android:layout_marginTop="50dp"
-    tools:actionBarNavMode="list">
+    android:layout_marginEnd="25dp"
+    android:orientation="vertical"
+    tools:actionBarNavMode="list"
+    tools:context=".RegistrActivity">
 
 
     <TextView
@@ -17,97 +17,94 @@
         android:layout_width="match_parent"
         android:layout_height="99dp"
         android:gravity="center"
+        android:text="@string/h_registration"
         android:textColor="#F44336"
         android:textSize="24sp"
-        android:text="@string/h_registration"
-        android:textStyle="normal|bold"
-        />
+        android:textStyle="normal|bold" />
 
     <TextView
         android:id="@+id/textName"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Никнейм (Логин)"
-        style="@style/TextViewStyle"
-        />
+        android:text="Никнейм (Логин)" />
 
     <EditText
         android:id="@+id/editName"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        style="@style/EditTextStyle.EditTextGeneral"
-        android:inputType="textPersonName"
-        />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textEmail"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
-        style="@style/TextViewStyle"/>
+        android:text="Email" />
 
     <EditText
         android:id="@+id/editEmail"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/textPhone"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Номер телефона"
-        style="@style/TextViewStyle"/>
+        android:text="Номер телефона" />
 
     <EditText
         android:id="@+id/editPhone"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="phone" />
 
     <TextView
         android:id="@+id/textPass1"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/h_password"
-        style="@style/TextViewStyle"/>
+        android:text="@string/h_password" />
 
     <EditText
         android:id="@+id/editPass1"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/textPass2"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Повторите пароль"
-        style="@style/TextViewStyle"/>
+        android:text="Повторите пароль" />
 
     <EditText
         android:id="@+id/editPass2"
+        style="@style/EditTextStyle.EditTextGeneral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        style="@style/EditTextStyle.EditTextGeneral"
         android:inputType="textPassword" />
 
     <Button
         android:id="@+id/buttonRegistration"
+        style="@style/ButtonStyle.ButtonRed"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/h_in_registration"
-        style="@style/ButtonStyle.ButtonRed"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"
-        android:onClick="onClickRegistration"/>
+        android:onClick="onClickRegistration"
+        android:text="@string/h_in_registration" />
 
 </LinearLayout>

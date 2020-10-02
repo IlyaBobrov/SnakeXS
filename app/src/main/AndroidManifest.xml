@@ -21,8 +21,6 @@
             android:name=".BackPassActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".AppActivity" />
-
         <activity
             android:name=".RegistrActivity"
             android:screenOrientation="portrait"

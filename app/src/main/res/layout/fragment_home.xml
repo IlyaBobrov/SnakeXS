@@ -16,7 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/text_home"
                 android:layout_width="match_parent"
@@ -26,15 +27,16 @@
                 android:layout_marginEnd="8dp"
                 android:textAlignment="center"
                 android:textSize="20sp"
+                android:text="@string/menu_home"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <ListView
                 android:id="@+id/ListViewNews"
                 android:layout_width="match_parent"
-                android:layout_height="500dp">
-            </ListView>
+                android:layout_height="500dp"/>
         </LinearLayout>
     </ScrollView>
 

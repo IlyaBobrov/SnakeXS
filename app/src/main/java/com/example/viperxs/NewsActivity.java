@@ -40,12 +40,13 @@ public class NewsActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_gallery, R.id.nav_timer, R.id.nav_time_manager, R.id.nav_plan, R.id.nav_settings, R.id.nav_out)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -56,12 +57,9 @@ public class NewsActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-
             }
         });
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,25 +78,4 @@ public class NewsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegistrActivity.class);
         startActivity(intent);
     }
-
-
-   /*public static void setListViewHeightBasedOnChildren(ListView listView) {
-       ListAdapter listAdapter = listView.getAdapter();
-       if (listAdapter == null) return;
-
-       int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-       int totalHeight = 0;
-       View view = null;
-       for (int i = 0; i < listAdapter.getCount(); i++) {
-           view = listAdapter.getView(i, view, listView);
-           if (i == 0)
-               view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
-           view.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-           totalHeight += view.getMeasuredHeight();
-       }
-       ViewGroup.LayoutParams params = listView.getLayoutParams();
-       params.height = totalHeight +(listView.getDividerHeight() * (listAdapter.getCount() - 1));
-       listView.setLayoutParams(params);
-       listView.requestLayout();
-   }*/
 }

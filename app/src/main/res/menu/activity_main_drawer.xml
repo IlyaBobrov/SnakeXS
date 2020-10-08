@@ -9,14 +9,20 @@
             android:id="@+id/nav_home"
             android:icon="@mipmap/ic_menu_news"
             android:title="@string/menu_home" />
-        <!--<item
+        <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />-->
+            android:title="@string/menu_slideshow" />
+
+        <item
+            android:id="@+id/nav_timer"
+            android:icon="@mipmap/ic_menu_time_manager"
+            android:title="@string/menu_timer"/>
+
         <item
             android:id="@+id/nav_time_manager"
             android:icon="@mipmap/ic_menu_time_manager"

@@ -25,4 +25,5 @@
     <string name="error_input_data">в заполнении данных</string>
     <string name="error">Ошибка</string>
     <string name="menu_out">Выйти</string>
+    <string name="menu_timer">Таймер</string>
 </resources>

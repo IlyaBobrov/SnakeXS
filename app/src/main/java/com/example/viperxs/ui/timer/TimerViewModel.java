@@ -1,16 +1,16 @@
-package com.example.viperxs.ui.home;
+package com.example.viperxs.ui.timer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class TimerViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public TimerViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Это новости");
+        mText.setValue("This is timer fragment");
     }
 
     public LiveData<String> getText() {

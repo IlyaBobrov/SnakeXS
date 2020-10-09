@@ -10,7 +10,7 @@ public class TimerViewModel extends ViewModel {
 
     public TimerViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is timer fragment");
+        mText.setValue("Таймер");
     }
 
     public LiveData<String> getText() {

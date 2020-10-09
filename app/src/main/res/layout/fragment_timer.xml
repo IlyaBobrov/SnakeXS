@@ -12,19 +12,77 @@
         android:id="@+id/text_timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_margin="8dp"
         android:textAlignment="center"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/button_start_timer"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Timer start"
-        style="@style/ButtonStyle.ButtonRed"
-        />
+        android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/editTextInputTimeForTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/EditTextStyle.EditTextGeneral"
+        android:layout_weight="5"
+        android:inputType="number"
+        android:hint="Время"
+        android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/editTextInputIntervalForTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle.EditTextGeneral"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:hint="Частота"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timer"
+        android:text="Осталось: "
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:id="@+id/timeElapsed"
+        android:text="Прошло: "
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"/>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_start_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonStyle.ButtonRed"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            />
+
+        <Button
+            android:id="@+id/button_pause_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonStyle.ButtonGrey"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
 </LinearLayout>

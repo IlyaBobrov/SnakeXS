@@ -1,7 +1,22 @@
-package com.example.viperxs;
+package com.example.viperxs.ui.timemanager;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class TimeManagmentViewModel extends ViewModel {
-    // TODO: Implement the ViewModel
+
+    private MutableLiveData<String> mText;
+
+    public TimeManagmentViewModel() {
+        mText = new MediatorLiveData<>();
+        mText.setValue("");
+    }
+
+    public LiveData<String> getText() {
+        return mText;
+    }
+
 }
+

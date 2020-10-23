@@ -1,5 +1,6 @@
 package com.example.viperxs.ui.timer;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +20,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.viperxs.R;
 
-public class TimerFragment extends Fragment implements View.OnClickListener{
+public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
 
     //TODO: реализовать функционал таймера из книги
     private MalibuCountDownTimer countDownTimer;
@@ -27,6 +30,7 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
     private Button button_pause_timer;
     private TextView text;
     private TextView timeElapsedView;
+    private SeekBar seekbarBtnWeigth;
 
     private EditText editTextTime, editTextInterval;
 
@@ -34,6 +38,9 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
     private long startTime;
     private long interval = 1 * 1000;
 
+
+    LinearLayout.LayoutParams layoutParams1;
+    LinearLayout.LayoutParams layoutParams2;
 
     private TimerViewModel timerViewModel;
     @Nullable
@@ -56,6 +63,13 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
 
         editTextTime = (EditText) root.findViewById(R.id.editTextInputTimeForTimer);
         editTextInterval = (EditText) root.findViewById(R.id.editTextInputIntervalForTimer);
+
+        //**seek bar**
+        seekbarBtnWeigth = (SeekBar) root.findViewById(R.id.seekbarBtnWeigth);
+        seekbarBtnWeigth.setOnSeekBarChangeListener(this);
+        layoutParams1 = (LinearLayout.LayoutParams) button_start_timer.getLayoutParams();
+        layoutParams2 = (LinearLayout.LayoutParams) button_pause_timer.getLayoutParams();
+        //**
 
         editTextTime.setText("10");
         editTextInterval.setText("1");
@@ -113,6 +127,26 @@ public class TimerFragment extends Fragment implements View.OnClickListener{
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+        int leftValue = progress;
+        int rightValue = seekBar.getMax() - progress;
+        layoutParams1.weight = leftValue;
+        layoutParams2.weight = rightValue;
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 
     public class MalibuCountDownTimer extends CountDownTimer {

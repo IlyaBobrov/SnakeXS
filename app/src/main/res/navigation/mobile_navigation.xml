@@ -27,6 +27,13 @@
         android:id="@+id/nav_timer"
         android:name="com.example.viperxs.ui.timer.TimerFragment"
         android:label="@string/menu_timer"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_timer" />
+
+    <fragment
+        android:id="@+id/nav_time_managment"
+        android:name="com.example.viperxs.ui.timemanager.TimeManagment"
+        android:label="Управление временем"
+        tools:layout="@layout/time_managment_fragment" />
+
 
 </navigation>

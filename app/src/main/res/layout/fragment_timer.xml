@@ -85,4 +85,13 @@
             />
 
     </LinearLayout>
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:max="100"
+        android:progress="75"
+        android:id="@+id/seekbarBtnWeigth"
+        />
 </LinearLayout>

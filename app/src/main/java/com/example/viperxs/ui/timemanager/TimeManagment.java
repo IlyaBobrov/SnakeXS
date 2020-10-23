@@ -1,4 +1,4 @@
-package com.example.viperxs;
+package com.example.viperxs.ui.timemanager;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.viperxs.R;
+
 public class TimeManagment extends Fragment {
 
     private TimeManagmentViewModel mViewModel;
@@ -21,7 +23,8 @@ public class TimeManagment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.time_managment_fragment, container, false);
     }

@@ -2,11 +2,11 @@ package com.example.viperxs;
 
 import android.util.Log;
 
-public class NameSingle {
+public class Singleton {
 
-    public static final NameSingle = new NameSingle();
+    public static final Singleton INSTANCE = new Singleton();
 
-    private NameSingle(){}
+    private Singleton(){}
 
     public void someMethod() {
         Log.i("Log", "I am a some Method");

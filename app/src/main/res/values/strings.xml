@@ -26,4 +26,7 @@
     <string name="error">Ошибка</string>
     <string name="menu_out">Выйти</string>
     <string name="menu_timer">Таймер</string>
+    <string name="h_help">Помощь</string>
+    <string name="title_activity_creater_manager">ScrollingActivity</string>
+
 </resources>

@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_authorization"
+        android:id="@+id/action_help"
         android:orderInCategory="5"
-        android:title="@string/h_authorization"
-        app:showAsAction="never" />
+        android:title="@string/h_help"
+        app:showAsAction="never"
+        android:onClick="onClickAction_Help"/>
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="15"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:onClick="onClickAction_Settings"/>
+
     <item android:id="@+id/action_regisr"
         android:orderInCategory="10"
         android:title="@string/h_registration"

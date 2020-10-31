@@ -73,7 +73,15 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
 
         EditText editLogin = (EditText) findViewById(R.id.editTextLogin);
         EditText editPass = (EditText) findViewById(R.id.editTextPass);
+
+        editLogin.setText("Default");
+        editPass.setText("Default");
+
         if (CheckData(editLogin,editPass)) {
+
+            User user = new User(editLogin.getText().toString(),"Empty","Empty", editPass.getText().toString());
+            intentInput.putExtra(User.class.getSimpleName(), user);
+
             startActivity(intentInput);
             this.finish();
         } else {
@@ -83,7 +91,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnTouchLis
     }
 
     private boolean CheckData(EditText editLogin, EditText editPass) {
-        return false;
+        return true;
     }
 
     public void onClickBackPass(View view) {

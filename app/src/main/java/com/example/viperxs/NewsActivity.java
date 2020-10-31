@@ -1,5 +1,7 @@
 package com.example.viperxs;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -33,6 +36,30 @@ public class NewsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+
+        //принимаем объект из предыдущей активити
+        try {
+            Bundle arg = getIntent().getExtras();
+            final User user;
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            if (arg != null) {
+                user = arg.getParcelable(User.class.getSimpleName());
+                builder.setMessage(user.login + "\n" + user.email).setTitle("Добро пожаловать!").create().show();
+            } else {
+                /*User user = new User;
+                user.setLogin("adminLogin");
+                user.setEmail("adminEmail");
+                user.setPhone("8976650756");
+                user.setPass("1111");*/
+                builder.setMessage("Ваши данные:\n"+"Данные отсутствуют").setTitle("Вы читер и вошли без авторизации").create().show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //Аппендикс
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +103,18 @@ public class NewsActivity extends AppCompatActivity {
 
     public void onClickAction_regisr(MenuItem item) {
         Intent intent = new Intent(this, RegistrActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickAction_Settings(MenuItem item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("В разработке").setTitle("Упс");
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    public void onClickAction_Help(MenuItem item) {
+        Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
 }

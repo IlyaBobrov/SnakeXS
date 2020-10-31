@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.viperxs.R;
 
-public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
+public class TimerFragment extends Fragment implements View.OnClickListener {
 
     //TODO: реализовать функционал таймера из книги
     private MalibuCountDownTimer countDownTimer;
@@ -30,7 +30,6 @@ public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeLi
     private Button button_pause_timer;
     private TextView text;
     private TextView timeElapsedView;
-    private SeekBar seekbarBtnWeigth;
 
     private EditText editTextTime, editTextInterval;
 
@@ -64,12 +63,6 @@ public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeLi
         editTextTime = (EditText) root.findViewById(R.id.editTextInputTimeForTimer);
         editTextInterval = (EditText) root.findViewById(R.id.editTextInputIntervalForTimer);
 
-        //**seek bar**
-        seekbarBtnWeigth = (SeekBar) root.findViewById(R.id.seekbarBtnWeigth);
-        seekbarBtnWeigth.setOnSeekBarChangeListener(this);
-        layoutParams1 = (LinearLayout.LayoutParams) button_start_timer.getLayoutParams();
-        layoutParams2 = (LinearLayout.LayoutParams) button_pause_timer.getLayoutParams();
-        //**
 
         editTextTime.setText("10");
         editTextInterval.setText("1");
@@ -129,25 +122,6 @@ public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeLi
         }
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-        int leftValue = progress;
-        int rightValue = seekBar.getMax() - progress;
-        layoutParams1.weight = leftValue;
-        layoutParams2.weight = rightValue;
-
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-
-    }
 
     public class MalibuCountDownTimer extends CountDownTimer {
         /**
@@ -172,10 +146,10 @@ public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeLi
             ost = (long) (millisUntilFinished % 1000);
             if (ost > 500) {
                 millisUntilFinished += 1000 - ost;
-            }
-            if (ost < 500) {
-                millisUntilFinished -= ost;
-            }
+            } else
+                if (ost < 500) {
+                    millisUntilFinished -= ost;
+                }
 
             text.setText("Осталось: " + (millisUntilFinished));
             timeElapsed = startTime - millisUntilFinished;
@@ -190,11 +164,8 @@ public class TimerFragment extends Fragment implements SeekBar.OnSeekBarChangeLi
             timerHasStarted = false;
             button_start_timer.setText("Начать заново");
             startTime = 0;
+            bufTime = 0;
         }
-
-
-
-
     }
 
     private long bufTime;

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +29,8 @@ import androidx.appcompat.widget.Toolbar;
 public class NewsActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    ListView mainListView;
+    Button buttonCreateItemLW;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,6 @@ public class NewsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
-
 
         //принимаем объект из предыдущей активити
         try {
@@ -59,14 +61,6 @@ public class NewsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //Аппендикс
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -80,12 +74,19 @@ public class NewsActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
+
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
 
             }
         });
+    }
+
+    private void onCreateLisView() {
+        mainListView = (ListView) findViewById(R.id.ListViewNews);
+//        mainListView.addHeaderView();
     }
 
     @Override

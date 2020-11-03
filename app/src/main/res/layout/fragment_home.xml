@@ -7,13 +7,9 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -36,7 +32,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="500dp"/>
         </LinearLayout>
-    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/createItemListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Создать"
+
+            />
+    </LinearLayout>
 
 
 </LinearLayout>

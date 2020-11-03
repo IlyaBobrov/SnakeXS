@@ -20,4 +20,11 @@
         app:showAsAction="never"
         android:onClick="onClickAction_regisr"
         />
+
+    <item android:id="@+id/action_develop"
+        android:orderInCategory="20"
+        android:title="Разработчик"
+        app:showAsAction="never"
+        android:onClick="onClickAction_Develop"
+        />
 </menu>

@@ -124,4 +124,8 @@ public class NewsActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/ilya_bobrow"));
         startActivity(intent);
     }
+
+    public void onClickAction_Calculate(MenuItem item) {
+        startActivity(new Intent(this, CalculateActivity.class));
+    }
 }

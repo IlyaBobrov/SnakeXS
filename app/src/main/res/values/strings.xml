@@ -29,4 +29,18 @@
     <string name="h_help">Помощь</string>
     <string name="title_activity_creater_manager">ScrollingActivity</string>
 
+    <string name="calc_tv_header">Калькулятор чаевых</string>
+    <string name="calc_tv1">Сумма заказа</string>
+    <string name="calc_tv2">Кол-во людей</string>
+    <string name="calc_tv3">Чаевые</string>
+    <string name="calc_rbText1">5%</string>
+    <string name="calc_rbText2">10%</string>
+    <string name="calc_rbText3">15%</string>
+    <string name="calc_rbText4">Другое:</string>
+    <string name="calc_btn1">Сбросить</string>
+    <string name="calc_btn2">Вычислить</string>
+    <string name="calc_tv4">Сумма чаевых:</string>
+    <string name="calc_tv6">Сумма к оплате:</string>
+    <string name="calc_tv8">Итог на человека:</string>
+
 </resources>

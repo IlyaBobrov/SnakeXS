@@ -4,8 +4,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +29,9 @@ public class ViewDetailItemActivity extends AppCompatActivity implements DatePic
     TextView textH1;
     TextView textP;
 
+    final String SAVED_TEXT_H1 = "saved_text_h1";
+    final String SAVED_TEXT_P = "saved_text_p";
+    SharedPreferences lastNotSaveItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,31 @@ public class ViewDetailItemActivity extends AppCompatActivity implements DatePic
                 datePicker.show(getSupportFragmentManager(), "date picker");
             }
         });
+        //восстановление данных
+        //TODO: сделать умный механизм восстановления данных item
+        try {
+            if (getPreferences(MODE_PRIVATE) != null) {
+                if (!getPreferences(MODE_PRIVATE).getString(SAVED_TEXT_H1, "").equals("") ||
+                        !getPreferences(MODE_PRIVATE).getString(SAVED_TEXT_P, "").equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage("Востановить предыдущий комменатрий?").setTitle("Buffer");
+                    builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            loadBufferItem();
+                        }
+                    }).setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) { }});
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+            } else {
+                Toast.makeText(this, "null", Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e){
+            Toast.makeText(this, "Ошибка: code 1", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -58,7 +89,7 @@ public class ViewDetailItemActivity extends AppCompatActivity implements DatePic
         textDay.setText(currentDateString);
     }
 
-
+    //Сохранение и добавление item в список
     public void onClickAddComment(View view) {
         Intent intent = new Intent(this, CreateNewItemActivity.class);
         intent.putExtra("h1_", textH1.getText().toString());
@@ -78,8 +109,45 @@ public class ViewDetailItemActivity extends AppCompatActivity implements DatePic
                 textP.setText(p);
             }
         } else {
-            Toast.makeText(ViewDetailItemActivity.this, "Изменения не сохранены", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ViewDetailItemActivity.this, "Без изменений", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            if (!textH1.getText().toString().isEmpty() || !textP.getText().toString().isEmpty()) {
+                saveBufferItem();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Ошибка сохранения в буфер: code 2", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void onClickSaveComment(View view) {
+    Intent intent = new Intent();
+    intent.putExtra("date", "date");
+    intent.putExtra("h1", textH1.getText().toString());
+    intent.putExtra("p", textP.getText().toString());
+    setResult(RESULT_OK, intent);
+    finish();
+    }
+
+    private void saveBufferItem() {
+        lastNotSaveItem = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = lastNotSaveItem.edit();
+        editor.putString(SAVED_TEXT_H1, textH1.getText().toString());
+        editor.putString(SAVED_TEXT_P, textP.getText().toString());
+        editor.apply();
+        Toast.makeText(this, "Save in buffer", Toast.LENGTH_SHORT).show();
+    }
+    private void loadBufferItem() {
+        lastNotSaveItem = getPreferences(MODE_PRIVATE);
+        textH1.setText(lastNotSaveItem.getString(SAVED_TEXT_H1, ""));
+        textP.setText(lastNotSaveItem.getString(SAVED_TEXT_P, ""));
+        Toast.makeText(this, "Restore from buffer", Toast.LENGTH_SHORT).show();
     }
 }
 

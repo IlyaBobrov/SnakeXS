@@ -10,10 +10,12 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,6 +23,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import static com.example.viperxs.ViewDetailItemActivity.REQUEST_CODE_COMMENT;
 
 public class NewsActivity extends AppCompatActivity {
 
@@ -56,8 +60,6 @@ public class NewsActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -69,9 +71,6 @@ public class NewsActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
@@ -79,7 +78,6 @@ public class NewsActivity extends AppCompatActivity {
             }
         });
     }
-
     private void onCreateLisView() {
         mainListView = (ListView) findViewById(R.id.ListViewNews);
 //        mainListView.addHeaderView();
@@ -125,5 +123,29 @@ public class NewsActivity extends AppCompatActivity {
 
     public void onClickCreateNews(View view) {
         startActivity(new Intent(this, ViewDetailItemActivity.class));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            if (requestCode == REQUEST_CODE_COMMENT) {
+                String h1 = data.getStringExtra("h1");
+                String p = data.getStringExtra("p");
+                Toast.makeText(this, "Данные получены", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Без изменений", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        try {
+
+        } catch (Exception e) {
+            Toast.makeText(this, "error: code 3", Toast.LENGTH_LONG).show();
+        }
     }
 }

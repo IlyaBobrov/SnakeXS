@@ -23,34 +23,17 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity /*implements View.OnTouchListener*/ {
 
     public final static String LOGIN = "LOGIN";
-    public final static String WEATHER_KEY = "WEATHER_KEY";
-    private DatabaseHelper mDBHelper;
-    private SQLiteDatabase mDB;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization);
-
-        /*mDBHelper = new DatabaseHelper(this);
-        try {
-            mDBHelper.updateDataBase();
-        } catch (IOException mIOException) {
-            throw new Error("UnableToUpdateDatabase");
-        }
-        try {
-            mDB = mDBHelper.getWritableDatabase();
-        } catch (SQLException mSQLException) {
-            throw mSQLException;
-        }*/
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        /*if (mCity != null) {
-            outState.putSerializable(WEATHER_KEY, mCity);
-        }*/
     }
 
 

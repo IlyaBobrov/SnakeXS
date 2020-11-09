@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.viperxs">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"> </uses-permission>
+    <uses-permission android:name="android.permission.STORAGE"> </uses-permission>
 
     <application
         android:allowBackup="true"
@@ -12,9 +12,19 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CalculateActivity"></activity>
+        <activity android:name=".BrowserActivity" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" android:host="vk.com" />
+                <data android:scheme="https" android:host="vk.com" />
+<!--                <data android:scheme="http://"/>-->
+            </intent-filter>
+        </activity>
+        <activity android:name=".CalculateActivity" />
         <activity android:name=".CreateNewItemActivity" />
-        <activity android:name=".MainActivity2" />
+        <activity android:name=".ViewDetailItemActivity" />
         <activity
             android:name=".NewsActivity"
             android:label="@string/title_activity_news"

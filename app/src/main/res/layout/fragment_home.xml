@@ -37,14 +37,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <!--TODO:выяснить почему ругается на onClick во фрагменте но работает-->
         <Button
             android:id="@+id/createItemListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Создать"
-
+            android:onClick="onClickCreateNews"
             />
+
     </LinearLayout>
 
 

@@ -1,22 +1,17 @@
 package com.example.viperxs;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
-import android.view.ViewGroup;
+import android.view.View;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -116,16 +111,19 @@ public class NewsActivity extends AppCompatActivity {
     }
 
     public void onClickAction_Help(MenuItem item) {
-        Intent intent = new Intent(this, MainActivity2.class);
+        Intent intent = new Intent(this, ViewDetailItemActivity.class);
         startActivity(intent);
     }
 
     public void onClickAction_Develop(MenuItem item) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/ilya_bobrow"));
-        startActivity(intent);
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/ilya_bobrow")));
     }
 
     public void onClickAction_Calculate(MenuItem item) {
         startActivity(new Intent(this, CalculateActivity.class));
+    }
+
+    public void onClickCreateNews(View view) {
+        startActivity(new Intent(this, ViewDetailItemActivity.class));
     }
 }

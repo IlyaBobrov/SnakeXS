@@ -1,5 +1,6 @@
 package com.example.viperxs;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -96,33 +97,38 @@ public class NewsActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 
-    public void onClickAction_regisr(MenuItem item) {
-        Intent intent = new Intent(this, RegistrActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickAction_Settings(MenuItem item) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("В разработке").setTitle("Упс");
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    public void onClickAction_Help(MenuItem item) {
-        Intent intent = new Intent(this, ViewDetailItemActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickAction_Develop(MenuItem item) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/ilya_bobrow")));
-    }
-
-    public void onClickAction_Calculate(MenuItem item) {
-        startActivity(new Intent(this, CalculateActivity.class));
+    @SuppressLint("NonConstantResourceId")
+    public void onClickActionMenu(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_help:
+                startActivity(new Intent(this, ViewDetailItemActivity.class));
+                break;
+            case R.id.action_develop:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://vk.com/ilya_bobrow")));
+                break;
+            case R.id.action_calculate:
+                startActivity(new Intent(this, CalculateActivity.class));
+                break;
+            case R.id.action_regisr:
+                startActivity(new Intent(this, RegistrActivity.class));
+                break;
+            case R.id.action_settings:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("В разработке").setTitle("Упс").create().show();
+                break;
+            case R.id.action_product_calc:
+                startActivity(new Intent(this, ProductCalcActivity.class));
+                break;
+            default:
+                break;
+        }
     }
 
     public void onClickCreateNews(View view) {
         startActivity(new Intent(this, ViewDetailItemActivity.class));
+    }
+    public void onClickForum(View view) {
+        startActivity(new Intent(this, ProductCalcActivity.class));
     }
 
     @Override

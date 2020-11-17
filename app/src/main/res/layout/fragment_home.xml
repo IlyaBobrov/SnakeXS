@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,47 +7,56 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:text="@string/menu_home"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ListView
-                android:id="@+id/ListViewNews"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"/>
-        </LinearLayout>
-
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!--TODO:выяснить почему ругается на onClick во фрагменте но работает-->
-        <Button
-            android:id="@+id/createItemListView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Создать"
-            android:onClick="onClickCreateNews"
-            />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:text="@string/menu_home"
+        android:layout_alignParentTop="true"/>
 
-    </LinearLayout>
+    <ListView
+        android:id="@+id/ListViewNews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/text_home"
+        android:layout_above="@id/btn_layout"
+        />
+
+ <LinearLayout
+     android:id="@+id/btn_layout"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_alignParentTop="false"
+     android:orientation="horizontal"
+     android:layout_alignParentBottom="true">
+
+    <Button
+        android:id="@+id/createItemListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:text="Заметка"
+        style="@style/ButtonStyle.ButtonGrey"
+        android:onClick="onClickCreateNews"
+        />
+     <Button
+         android:id="@+id/btn_forum"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:layout_margin="10dp"
+         android:text="Форум"
+         style="@style/ButtonStyle.ButtonRed"
+         android:onClick="onClickForum"
+         />
+ </LinearLayout>
 
 
-</LinearLayout>
+
+</RelativeLayout>

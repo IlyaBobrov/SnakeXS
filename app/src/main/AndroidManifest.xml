@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.viperxs">
 
-    <uses-permission android:name="android.permission.INTERNET"> </uses-permission>
-    <uses-permission android:name="android.permission.STORAGE"> </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.STORAGE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -12,14 +12,25 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BrowserActivity" android:theme="@style/AppTheme.NoActionBar">
+
+        <activity android:name=".ProductCalcActivity"></activity>
+
+        <activity
+            android:name=".BrowserActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" android:host="vk.com" />
-                <data android:scheme="https" android:host="vk.com" />
-                <!--<data android:scheme="http://"/>-->
+
+                <data
+                    android:host="vk.com"
+                    android:scheme="http" />
+                <data
+                    android:host="vk.com"
+                    android:scheme="https" />
+                <!-- <data android:scheme="http://"/> -->
             </intent-filter>
         </activity>
         <activity android:name=".CalculateActivity" />

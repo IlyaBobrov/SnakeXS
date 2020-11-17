@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/product_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            tools:text="Булочка"
+            android:layout_weight="0.2"/>
+        <TextView
+            android:id="@+id/product_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            tools:text="Цена"
+            android:layout_weight="0.2"/>
+        <TextView
+            android:id="@+id/product_item_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            tools:text="Вес"
+            android:layout_weight="0.2"/>
+        <TextView
+            android:id="@+id/product_item_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            tools:text="за 1гр"
+            android:layout_weight="0.2"/>
+        <TextView
+            android:id="@+id/product_item_res_another"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            tools:text="set"
+            android:layout_weight="0.2"/>
+    </TableRow>
+
+
+
+</TableLayout>

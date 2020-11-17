@@ -136,7 +136,7 @@ public class ViewDetailItemActivity extends AppCompatActivity implements DatePic
     }
 
     private void saveBufferItem() {
-        lastNotSaveItem = getPreferences(MODE_PRIVATE);
+        lastNotSaveItem = getSharedPreferences("bufferItem", MODE_PRIVATE);
         SharedPreferences.Editor editor = lastNotSaveItem.edit();
         editor.putString(SAVED_TEXT_H1, textH1.getText().toString());
         editor.putString(SAVED_TEXT_P, textP.getText().toString());
@@ -144,7 +144,7 @@ public class ViewDetailItemActivity extends AppCompatActivity implements DatePic
         Toast.makeText(this, "Save in buffer", Toast.LENGTH_SHORT).show();
     }
     private void loadBufferItem() {
-        lastNotSaveItem = getPreferences(MODE_PRIVATE);
+        lastNotSaveItem = getSharedPreferences("bufferItem", MODE_PRIVATE);
         textH1.setText(lastNotSaveItem.getString(SAVED_TEXT_H1, ""));
         textP.setText(lastNotSaveItem.getString(SAVED_TEXT_P, ""));
         Toast.makeText(this, "Restore from buffer", Toast.LENGTH_SHORT).show();

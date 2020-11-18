@@ -33,23 +33,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:nextFocusDown="@id/prod_ed_weight"
             android:hint="Название"
-            android:text="Название"/>
-        <EditText
-            android:id="@+id/prod_ed_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:inputType="numberDecimal"
-            android:hint="Цена"/>
+            android:text="item"/>
         <EditText
             android:id="@+id/prod_ed_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
+            android:focusable="true"
+            android:nextFocusDown="@id/prod_ed_price"
             android:hint="Вес"/>
+        <EditText
+            android:id="@+id/prod_ed_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="numberDecimal"
+            android:nextFocusDown="@id/mess_btnSend"
+            android:hint="Цена"/>
     </LinearLayout>
 
     <LinearLayout
@@ -66,6 +69,7 @@
             android:layout_height="wrap_content"
             android:text="100"
             android:layout_weight="1"
+            android:nextFocusDown="@id/mess_btnSend"
             android:inputType="number"/>
         <TextView
             android:layout_width="wrap_content"
@@ -103,18 +107,18 @@
                 android:text="Товар"
                 android:layout_weight="0.2"/>
             <TextView
-                android:id="@+id/product_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
-                android:text="Цена"
-                android:layout_weight="0.2"/>
-            <TextView
                 android:id="@+id/product_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="normal|bold"
                 android:text="Вес"
+                android:layout_weight="0.2"/>
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold"
+                android:text="Цена"
                 android:layout_weight="0.2"/>
             <TextView
                 android:id="@+id/product_one_gr"

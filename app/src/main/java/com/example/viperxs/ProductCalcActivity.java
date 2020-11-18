@@ -3,15 +3,19 @@ package com.example.viperxs;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ListAdapter;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.icu.number.Precision;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,13 +26,13 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class ProductCalcActivity extends AppCompatActivity {
 
     private final String LOG_TAG = "eat";
-
-    private RelativeLayout activity_product_calc;
 
     ListView listOfProducts;
     ProductAdapter adapter;
@@ -36,7 +40,7 @@ public class ProductCalcActivity extends AppCompatActivity {
 
     Product product;
 
-    private FloatingActionButton btnSed;
+    private FloatingActionButton btnSend;
     private Button btnReCalc;
 
     private EditText eName;
@@ -71,50 +75,46 @@ public class ProductCalcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_calc);
 
-        activity_product_calc = findViewById(R.id.activity_product_calc);
-        ArrayList<Product> products = new ArrayList();
-        ArrayAdapter<String> adapter;
-
-
         eName = findViewById(R.id.prod_ed_name);
+
         ePrice = findViewById(R.id.prod_ed_price);
         eWeight = findViewById(R.id.prod_ed_weight);
+        eWeight.requestFocus();
         eAnother = findViewById(R.id.prod_ed_set_weight);
         tName = findViewById(R.id.product_item_name);
         tPrice = findViewById(R.id.product_item_price);
         tWeight = findViewById(R.id.product_item_weight);
         tRes = findViewById(R.id.product_item_res);
         tResAnother = findViewById(R.id.product_item_res_another);
-        btnSed = findViewById(R.id.mess_btnSend);
+        btnSend = findViewById(R.id.mess_btnSend);
         btnReCalc = findViewById(R.id.button_set_weight);
 
         dbHelper = new DatabaseHelper(this);
 
-        btnSed.setOnClickListener(new View.OnClickListener() {
+        adapter = new ProductAdapter(this, products);
+        listOfProducts = findViewById(R.id.prod_list);
+        listOfProducts.setAdapter(adapter);
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                if (!checkEditField()) return;
-
-                db = dbHelper.getWritableDatabase(); //открыть и вернуть экземпляр базы данных
-                contentValues = new ContentValues(); //класс для добавления новых строк в таблицу
-
-                forOneGram = calcOneGram();
-                Log.d(LOG_TAG, "один грамм " + forOneGram);
-                forAnotherGram = calcAnotherGram();
-                Log.d(LOG_TAG, "другое кол-во" + forAnotherGram);
-
-                products.add(new Product(eName.getText().toString(),
-                        Integer.parseInt(ePrice.getText().toString()),
-                        Long.parseLong(eWeight.getText().toString()),
-                        forOneGram, forAnotherGram));
-
-                Log.d(LOG_TAG, "создан продукт");
-
-                displayAllProduct();
-                //dbAddProduct(); //добавление в бд
+                onClickSend(v);
             }
         });
-
+        eWeight.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(eWeight, InputMethodManager.SHOW_IMPLICIT);
+            }
+        });
+        btnSend.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                onClickSend(v);
+            }
+        });
         btnReCalc.setClickable(false);
         btnReCalc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,22 +123,48 @@ public class ProductCalcActivity extends AppCompatActivity {
                 calculateAnother();
             }
         });
+        Log.d(LOG_TAG, "onCreate - EndMethod");
+    }
+
+    private void onClickSend(View v) {
+        if (!checkEditField()) return;
+
+        db = dbHelper.getWritableDatabase(); //открыть и вернуть экземпляр базы данных
+        contentValues = new ContentValues(); //класс для добавления новых строк в таблицу
+
+        forOneGram = calcOneGram();
+        Log.d(LOG_TAG, "один грамм " + forOneGram);
+        forAnotherGram = calcAnotherGram();
+        Log.d(LOG_TAG, "другое кол-во" + forAnotherGram);
+
+        displayProduct();
+        dbAddProduct(); //добавление в бд
+        Log.d(LOG_TAG, "onClick - EndMethod");
+        eName.setText("item");
+        ePrice.setText("");
+        eWeight.setText("");
+        eWeight.requestFocus();
+
     }
 
     private double calcOneGram() {
-        return Double.parseDouble(ePrice.getText().toString()) / Integer.parseInt(eWeight.getText().toString());
+        return round(Double.parseDouble(ePrice.getText().toString()) / Integer.parseInt(eWeight.getText().toString()), 2);
     }
 
     private double calcAnotherGram() {
-        return Double.parseDouble(ePrice.getText().toString()) / Integer.parseInt(eWeight.getText().toString()) *
+        return round(Double.parseDouble(ePrice.getText().toString()) / Integer.parseInt(eWeight.getText().toString()), 2) *
                 Integer.parseInt(eAnother.getText().toString());
     }
 
-    private void displayAllProduct() {
-        listOfProducts = findViewById(R.id.prod_list);
-        adapter = new ProductAdapter(this, R.layout.product_item_calc, products);
+    private void displayProduct() {
+        products.add(new Product(eName.getText().toString(),
+                Integer.parseInt(ePrice.getText().toString()),
+                Long.parseLong(eWeight.getText().toString()),
+                forOneGram, forAnotherGram));
+        adapter = new ProductAdapter(this, products);
         listOfProducts.setAdapter(adapter);
-        Log.d(LOG_TAG, "продукт отображен");
+
+        Log.d(LOG_TAG, "displayProduct - EndMethod");
     }
 
     private void calculateAnother() {
@@ -154,16 +180,28 @@ public class ProductCalcActivity extends AppCompatActivity {
     }
 
     private boolean checkEditField() {
-        if (eName.getText().toString().isEmpty() ||
+        if (eName.getText().toString().isEmpty()||
             ePrice.getText().toString().isEmpty()||
             eWeight.getText().toString().isEmpty()||
             eAnother.getText().toString().isEmpty()) {
             Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if (Double.parseDouble(eWeight.getText().toString()) == 0) {
+            Toast.makeText(this, "Укажите вес", Toast.LENGTH_SHORT).show();
+            return false;
+        }
      return true;
     }
 
     public void onClickActionProductClear(MenuItem item) {
+    }
+
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }

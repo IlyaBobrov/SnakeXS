@@ -13,34 +13,39 @@
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
             tools:text="Булочка"
-            android:layout_weight="0.2"/>
-        <TextView
-            android:id="@+id/product_item_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="normal|bold"
-            tools:text="Цена"
+            android:textSize="20sp"
             android:layout_weight="0.2"/>
         <TextView
             android:id="@+id/product_item_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
-            tools:text="Вес"
+            tools:text="500"
+            android:textSize="20sp"
+            android:layout_weight="0.2"/>
+        <TextView
+            android:id="@+id/product_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            tools:text="100"
+            android:textSize="20sp"
             android:layout_weight="0.2"/>
         <TextView
             android:id="@+id/product_item_res"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
-            tools:text="за 1гр"
+            tools:text="0.25"
+            android:textSize="20sp"
             android:layout_weight="0.2"/>
         <TextView
             android:id="@+id/product_item_res_another"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
-            tools:text="set"
+            tools:text="200"
+            android:textSize="20sp"
             android:layout_weight="0.2"/>
     </TableRow>
 

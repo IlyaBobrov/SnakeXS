@@ -8,7 +8,7 @@ public class Product {
     public double productForOneGram;
     public double productForAnotherGram;
 
-    public Product() {}
+    /*public Product() {}
 
     public Product(String productName, double productPrise, long productWeight) {
         this.productName = productName;
@@ -16,7 +16,7 @@ public class Product {
         this.productWeight = productWeight;
         this.productForOneGram = 0.;
         this.productForAnotherGram = 0.;
-    }
+    }*/
 
     public Product(String productName, double productPrise, long productWeight, double productForOneGram, double productForAnotherGram) {
         this.productName = productName;

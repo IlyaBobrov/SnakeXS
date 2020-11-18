@@ -1,71 +1,69 @@
 package com.example.viperxs;
 
-
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-import java.util.List;
 
-public class ProductAdapter extends ArrayAdapter<Product> {
+public class ProductAdapter extends BaseAdapter {
 
-    private LayoutInflater inflater;
-    private int layout;
-    private ArrayList<Product> productList;
+    private final String LOG_TAG = "eat";
 
-    public ProductAdapter(@NonNull Context context, int resource, @NonNull List<Product> objects) {
-        super(context, resource, objects);
-        this.productList = (ArrayList<Product>)objects;
-        this.layout = resource;
-        this.inflater = LayoutInflater.from(context);
+    Context context;
+    LayoutInflater inflater;
+    ArrayList<Product> objects;
+
+    ProductAdapter(Context context, ArrayList<Product> products) {
+        this.context = context;
+        this.objects = products;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Log.d(LOG_TAG, "adapter: Constructor: ProductAdapter");
     }
 
-    //TODO:НЕРАБОТАЕТ АДАПТЕР
+    @Override
+    public int getCount() {
+        return objects.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return objects.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // используем созданные, но не используемые view
+
         View view = convertView;
         if (view == null) {
             view = inflater.inflate(R.layout.product_item_calc, parent, false);
         }
 
-        Product p = getItem(position);
+        Product p = getProduct(position);
 
         // заполняем View в пункте списка данными из товаров: наименование, цена
         ((TextView) view.findViewById(R.id.product_item_name)).setText(p.productName);
-        ((TextView) view.findViewById(R.id.product_item_price)).setText((int) p.productPrise);
-        ((TextView) view.findViewById(R.id.product_item_weight)).setText((int) p.productWeight);
-        ((TextView) view.findViewById(R.id.product_item_res)).setText((int) p.productForOneGram);
-        ((TextView) view.findViewById(R.id.product_item_res_another)).setText((int) p.productForAnotherGram);
-
+        ((TextView) view.findViewById(R.id.product_item_price)).setText((Integer.toString((int) p.productPrise)));
+        ((TextView) view.findViewById(R.id.product_item_weight)).setText((Double.toString(p.productWeight)));
+        ((TextView) view.findViewById(R.id.product_item_res)).setText((Double.toString(p.productForOneGram)));
+        ((TextView) view.findViewById(R.id.product_item_res_another)).setText((Double.toString(p.productForAnotherGram)));
+        Log.d(LOG_TAG, "adapter: getView: EndMethod");
         return view;
+
     }
 
-    public ProductAdapter(@NonNull Context context, int resource) {
-        super(context, resource);
+    // товар по позиции
+    Product getProduct(int position) {
+        return ((Product) getItem(position));
     }
 
-    public ProductAdapter(@NonNull Context context, int resource, int textViewResourceId) {
-        super(context, resource, textViewResourceId);
-    }
-
-    public ProductAdapter(@NonNull Context context, int resource, @NonNull Product[] objects) {
-        super(context, resource, objects);
-    }
-
-    public ProductAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull Product[] objects) {
-        super(context, resource, textViewResourceId, objects);
-    }
-
-    public ProductAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<Product> objects) {
-        super(context, resource, textViewResourceId, objects);
-    }
 }

@@ -41,7 +41,7 @@ public class ProductCalcActivity extends AppCompatActivity {
     Product product;
 
     private FloatingActionButton btnSend;
-    private Button btnReCalc;
+    private FloatingActionButton btnReCalc;
 
     private EditText eName;
     private EditText ePrice;
@@ -152,8 +152,7 @@ public class ProductCalcActivity extends AppCompatActivity {
     }
 
     private double calcAnotherGram() {
-        return round(Double.parseDouble(ePrice.getText().toString()) / Integer.parseInt(eWeight.getText().toString()), 2) *
-                Integer.parseInt(eAnother.getText().toString());
+        return round(calcOneGram() * Integer.parseInt(eAnother.getText().toString()), 2);
     }
 
     private void displayProduct() {

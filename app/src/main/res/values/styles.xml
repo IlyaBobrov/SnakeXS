@@ -58,4 +58,8 @@
         <item name="android:textColor">@color/textColor</item>
     </style>
 
+    <style name="AppTheme.EdgeEffect">
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+    </style>
+
 </resources>

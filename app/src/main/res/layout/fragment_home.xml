@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/createItemListView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="10dp"
@@ -47,11 +47,11 @@
         />
      <Button
          android:id="@+id/btn_forum"
-         android:layout_width="wrap_content"
+         android:layout_width="0dp"
          android:layout_height="wrap_content"
          android:layout_weight="1"
          android:layout_margin="10dp"
-         android:text="Форум"
+         android:text="Калькулятор"
          style="@style/ButtonStyle.ButtonRed"
          android:onClick="onClickForum"
          />

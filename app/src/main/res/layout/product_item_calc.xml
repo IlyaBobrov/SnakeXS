@@ -4,51 +4,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:stretchColumns="*"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:paddingTop="10dp"
+    >
+
 
     <TableRow>
         <TextView
             android:id="@+id/product_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal|bold"
+            android:textStyle="normal"
             tools:text="Булочка"
-            android:textSize="20sp"
-            android:layout_weight="0.2"/>
+            android:textSize="@dimen/table_header_text"
+            android:layout_column="0"
+            />
         <TextView
             android:id="@+id/product_item_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal|bold"
+            android:textStyle="normal"
             tools:text="500"
-            android:textSize="20sp"
-            android:layout_weight="0.2"/>
+            android:textSize="@dimen/table_header_text"
+            android:layout_column="1"
+            />
         <TextView
             android:id="@+id/product_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal|bold"
+            android:textStyle="normal"
             tools:text="100"
-            android:textSize="20sp"
-            android:layout_weight="0.2"/>
+            android:textSize="@dimen/table_header_text"
+            android:layout_column="2"
+            />
         <TextView
             android:id="@+id/product_item_res"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="normal|bold"
             tools:text="0.25"
-            android:textSize="20sp"
-            android:layout_weight="0.2"/>
+            android:textSize="@dimen/table_header_text"
+            android:layout_column="3"
+            />
         <TextView
             android:id="@+id/product_item_res_another"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal|bold"
+            android:textStyle="normal"
             tools:text="200"
-            android:textSize="20sp"
-            android:layout_weight="0.2"/>
+            android:textSize="@dimen/table_header_text"
+            android:layout_column="4"
+            />
     </TableRow>
 
+    <TableRow>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="5dp"
+            >
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_main_grey"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+
+                />
+        </LinearLayout>
+
+    </TableRow>
 
 </TableLayout>

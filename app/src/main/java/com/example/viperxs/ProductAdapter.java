@@ -52,8 +52,8 @@ public class ProductAdapter extends BaseAdapter {
 
         // заполняем View в пункте списка данными из товаров: наименование, цена
         ((TextView) view.findViewById(R.id.product_item_name)).setText(p.productName);
-        ((TextView) view.findViewById(R.id.product_item_price)).setText((Integer.toString((int) p.productPrise)));
-        ((TextView) view.findViewById(R.id.product_item_weight)).setText((Double.toString(p.productWeight)));
+        ((TextView) view.findViewById(R.id.product_item_weight)).setText((Long.toString(p.productWeight)));
+        ((TextView) view.findViewById(R.id.product_item_price)).setText((Double.toString(p.productPrise)));
         ((TextView) view.findViewById(R.id.product_item_res)).setText((Double.toString(p.productForOneGram)));
         ((TextView) view.findViewById(R.id.product_item_res_another)).setText((Double.toString(p.productForAnotherGram)));
         Log.d(LOG_TAG, "adapter: getView: EndMethod");

@@ -2,86 +2,90 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_product_calc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductCalcActivity"
-    android:id="@+id/activity_product_calc"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    tools:context=".ProductCalcActivity">
 
 
     <TableLayout
         android:id="@+id/tb_l"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:stretchColumns="*"
-        >
+        android:layout_alignParentTop="true"
+        android:stretchColumns="*">
+
         <TableRow>
+
             <TextView
                 android:id="@+id/product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
+                android:layout_column="0"
                 android:text="Название"
                 android:textSize="@dimen/table_header_text"
-                android:layout_column="0"
-                />
+                android:textStyle="normal|bold" />
+
             <TextView
                 android:id="@+id/product_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
+                android:layout_column="1"
                 android:text="Вес"
                 android:textSize="@dimen/table_header_text"
-                android:layout_column="1"
-                />
+                android:textStyle="normal|bold" />
+
             <TextView
                 android:id="@+id/product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
+                android:layout_column="3"
                 android:text="Цена"
                 android:textSize="@dimen/table_header_text"
-                android:layout_column="3"
-                />
+                android:textStyle="normal|bold" />
+
             <TextView
                 android:id="@+id/product_one_gr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
+                android:layout_column="4"
                 android:text="За 1 грамм"
                 android:textSize="@dimen/table_header_text"
-                android:layout_column="4"
-                />
+                android:textStyle="normal|bold" />
+
             <TextView
                 android:id="@+id/product_set_gr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
+                android:layout_column="5"
                 android:text="За * грамм"
                 android:textSize="@dimen/table_header_text"
-                android:layout_column="5"
-                />
+                android:textStyle="normal|bold" />
         </TableRow>
+
         <TableRow>
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
                 <View
                     android:layout_width="0dp"
                     android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_main_grey"
-                    android:layout_marginTop="5dp"/>
+                    android:background="@drawable/button_main_grey" />
             </LinearLayout>
         </TableRow>
     </TableLayout>
 
     <ListView
         android:id="@+id/prod_list"
+        style="@style/AppTheme.EdgeEffect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/prod_input_ed_1_layout"
@@ -91,9 +95,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:divider="@android:color/transparent"
-        style="@style/AppTheme.EdgeEffect"
-        android:splitMotionEvents="false"
-        android:dividerHeight="5dp" />
+        android:dividerHeight="5dp"
+        android:splitMotionEvents="false" />
 
     <LinearLayout
         android:id="@+id/prod_input_ed_1_layout"
@@ -103,6 +106,7 @@
 
         <EditText
             android:id="@+id/prod_ed_name"
+            style="@style/EditTextStyle.EditTextGeneral"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -110,31 +114,29 @@
             android:inputType="text"
             android:maxLength="12"
             android:nextFocusDown="@id/prod_ed_weight"
-            style="@style/EditTextStyle.EditTextGeneral"
-            android:text="item"
-            />
+            android:text="item" />
+
         <EditText
             android:id="@+id/prod_ed_set_weight"
+            style="@style/EditTextStyle.EditTextGeneral"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number"
-            style="@style/EditTextStyle.EditTextGeneral"
-            android:nextFocusDown="@id/mess_btnSend"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:inputType="number"
             android:maxLength="5"
-            android:text="100"
-            />
+            android:nextFocusDown="@id/mess_btnSend"
+            android:text="100" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button_set_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:src="@drawable/ic_reloud_gram"
-            app:fabSize="mini"
             android:textColor="#ffffff"
-            />
+            app:fabSize="mini" />
     </LinearLayout>
 
     <LinearLayout
@@ -148,42 +150,40 @@
 
         <EditText
             android:id="@+id/prod_ed_weight"
+            style="@style/EditTextStyle.EditTextGeneral"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:focusable="true"
             android:hint="Вес"
-            android:maxLength="5"
-            style="@style/EditTextStyle.EditTextGeneral"
             android:inputType="number"
-            android:nextFocusDown="@id/prod_ed_price"
-            />
+            android:maxLength="5"
+            android:nextFocusDown="@id/prod_ed_price" />
+
         <EditText
             android:id="@+id/prod_ed_price"
+            style="@style/EditTextStyle.EditTextGeneral"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:hint="Цена"
-            style="@style/EditTextStyle.EditTextGeneral"
-            android:inputType="numberDecimal"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_weight="1.5"
+            android:hint="Цена"
+            android:inputType="numberDecimal"
             android:maxLength="7"
-            android:nextFocusDown="@id/mess_btnSend"
-            />
+            android:nextFocusDown="@id/mess_btnSend" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/mess_btnSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_send"
-            app:fabSize="mini"
-            android:clickable="true"
-            app:backgroundTint="@color/colorPrimary"
             android:layout_marginBottom="10dp"
-            />
+            android:clickable="true"
+            android:src="@drawable/ic_send"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="mini" />
     </LinearLayout>
-</RelativeLayout>
-    <!--Old design-->
+</RelativeLayout><!--Old design-->
     <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/mess_btnSend"
         android:layout_width="wrap_content"

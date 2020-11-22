@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 public class ProductAdapter extends BaseAdapter {
@@ -65,5 +64,4 @@ public class ProductAdapter extends BaseAdapter {
     Product getProduct(int position) {
         return ((Product) getItem(position));
     }
-
 }

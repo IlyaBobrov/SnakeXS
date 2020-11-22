@@ -1,6 +1,5 @@
 package com.example.viperxs;
 
-
 public class Product {
     public String productName;
     public double productPrise;
@@ -8,15 +7,7 @@ public class Product {
     public double productForOneGram;
     public double productForAnotherGram;
 
-    /*public Product() {}
-
-    public Product(String productName, double productPrise, long productWeight) {
-        this.productName = productName;
-        this.productPrise = productPrise;
-        this.productWeight = productWeight;
-        this.productForOneGram = 0.;
-        this.productForAnotherGram = 0.;
-    }*/
+    //public Product() {}
 
     public Product(String productName, double productPrise, long productWeight, double productForOneGram, double productForAnotherGram) {
         this.productName = productName;

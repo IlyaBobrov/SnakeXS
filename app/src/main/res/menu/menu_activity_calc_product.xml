@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_product_clear"
+        android:onClick="onClickActionProductClear"
         android:orderInCategory="5"
         android:title="Очистить"
-        app:showAsAction="never"
-        android:onClick="onClickActionProductClear"/>
+        app:showAsAction="never" />
 
 </menu>

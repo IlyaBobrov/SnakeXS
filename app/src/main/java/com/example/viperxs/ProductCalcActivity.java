@@ -1,14 +1,10 @@
 package com.example.viperxs;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ListAdapter;
-
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.icu.number.Precision;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,13 +12,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -57,14 +52,13 @@ public class ProductCalcActivity extends AppCompatActivity {
     private double forOneGram = 0;
     private double forAnotherGram = 0;
 
-
     DatabaseHelper dbHelper;
     SQLiteDatabase db;
     ContentValues contentValues;
     Cursor cursor;
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity_calc_product, menu);
         return true;
@@ -119,7 +113,7 @@ public class ProductCalcActivity extends AppCompatActivity {
         btnReCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(eAnother.getText().toString().isEmpty()) eAnother.setText("1");
+                if (eAnother.getText().toString().isEmpty()) eAnother.setText("1");
                 calculateAnother();
             }
         });
@@ -179,10 +173,10 @@ public class ProductCalcActivity extends AppCompatActivity {
     }
 
     private boolean checkEditField() {
-        if (eName.getText().toString().isEmpty()||
-            ePrice.getText().toString().isEmpty()||
-            eWeight.getText().toString().isEmpty()||
-            eAnother.getText().toString().isEmpty()) {
+        if (eName.getText().toString().isEmpty() ||
+                ePrice.getText().toString().isEmpty() ||
+                eWeight.getText().toString().isEmpty() ||
+                eAnother.getText().toString().isEmpty()) {
             Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -190,7 +184,7 @@ public class ProductCalcActivity extends AppCompatActivity {
             Toast.makeText(this, "Укажите вес", Toast.LENGTH_SHORT).show();
             return false;
         }
-     return true;
+        return true;
     }
 
     public void onClickActionProductClear(MenuItem item) {
